@@ -1,0 +1,88 @@
+{
+  "name": "anabar-extension",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "better-npm-run dev",
+    "build-extension-beta": "better-npm-run build-extension-beta",
+    "build-extension": "better-npm-run build-extension",
+    "archive-extension": "node scripts/archive-extension",
+    "archive-extension-source": "node scripts/archive-extension-source",
+    "pack-extension-beta": "yarn build-extension-beta && yarn archive-extension && yarn archive-extension-source",
+    "pack-extension": "yarn build-extension && yarn archive-extension && yarn archive-extension-source",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src--ext .ts,.tsx --fix",
+    "precommit": "lint-staged",
+    "tsc": "tsc --noEmit"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "node scripts/dev"
+    },
+    "build-extension-beta": {
+      "command": "node scripts/build-extension"
+    },
+    "build-extension": {
+      "command": "node scripts/build-extension"
+    }
+  },
+  "keywords": [
+    "anabar",
+    "marketplace"
+  ],
+  "devDependencies": {
+    "@types/chrome": "^0.0.122",
+    "@types/react-dom": "^16.9.8",
+    "@types/webpack": "^4.41.22",
+    "@types/webpack-env": "^1.15.2",
+    "@typescript-eslint/eslint-plugin": "4.29.1",
+    "@typescript-eslint/parser": "^3.9.1",
+    "autoprefixer": "^9.8.6",
+    "bestzip": "^2.1.2",
+    "better-npm-run": "^0.1.1",
+    "chromedriver": "^2.33.2",
+    "core-js": "^3.1.4",
+    "cross-env": "^3.1.3",
+    "css-loader": "^4.2.1",
+    "dotenv": "^6.2.0",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^5.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.2.3",
+    "prettier": "^2.4.1",
+    "pug-cli": "^1.0.0-alpha6",
+    "shelljs": "^0.7.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.2",
+    "typescript": "^4.2.3",
+    "url-loader": "^0.6.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-httpolyglot-server": "^0.3.0",
+    "webpack-merge": "^5.1.3",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "dependencies": {
+    "@csssr/linters": "^0.1.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-security-node": "^1.0.14",
+    "eslint-plugin-unicorn": "^38.0.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "eslint",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
